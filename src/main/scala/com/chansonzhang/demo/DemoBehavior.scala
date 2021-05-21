@@ -20,9 +20,12 @@ package com.chansonzhang.demo
  */
 
 import com.chansonzhang.demo.util.{JavaDataUtils, JsonUtils}
+import lombok.extern.slf4j.Slf4j
+
+import scala.collection.mutable
 
 class DemoBehavior extends DemoBase {
-  def getJsonParam(): String = {
+  def getJsonParam: String = {
     val name = Option(this.getString("name"))
     val age = JavaDataUtils.getIntFromJava(this, "age")
     val married = JavaDataUtils.getBooleanFromJava(this, "married")
@@ -34,4 +37,12 @@ class DemoBehavior extends DemoBase {
       married)
     JsonUtils.toJsonString(param)
   }
+
+  def execute(): Unit = {
+    val input = this.getString("input")
+    println("input: " + input)
+    val value = "do some compute"
+    setOutputValue("out", value)
+  }
+
 }

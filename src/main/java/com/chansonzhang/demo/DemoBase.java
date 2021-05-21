@@ -1,5 +1,8 @@
 package com.chansonzhang.demo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Copyright 2021 Zhang, Chen. All Rights Reserved.
  * <p>
@@ -20,9 +23,21 @@ package com.chansonzhang.demo;
  * @since 2021/5/13 21:42
  */
 public class DemoBase {
-     public Integer getInt(String key){return null;}
+    Map<String, Object> output = new HashMap<>();
 
-     public String getString(String key){return null;}
+    public Integer getInt(String key) {
+        return null;
+    }
 
-     public Boolean getBoolean(String key){return null;}
+    public String getString(String key) {
+        return null;
+    }
+
+    public Boolean getBoolean(String key) {
+        return null;
+    }
+
+    public void setOutputValue(String key, Object value) {
+        this.output.put(key, value);
+    }
 }
