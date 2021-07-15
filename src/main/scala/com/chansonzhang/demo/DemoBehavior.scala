@@ -45,4 +45,13 @@ class DemoBehavior extends DemoBase {
     setOutputValue("out", value)
   }
 
+  def sum():Int={
+    var rst = sumTuple(1,2)
+    rst
+  }
+
+  def sumTuple(tuple2: Tuple2[Int, Int]):Int = {
+    tuple2._1 + tuple2._2
+  }
+
 }

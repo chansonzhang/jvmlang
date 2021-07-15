@@ -3,13 +3,14 @@ package com.chansonzhang.demo
 import com.chansonzhang.demo.util.JsonUtils
 import org.mockito.ArgumentMatchers.any
 import org.mockito.IdiomaticMockito.{DoSomethingOps, returned}
-import org.mockito.Mockito.{spy, when}
+import org.mockito.Mockito.{spy, when,mock}
 import org.mockito.invocation.InvocationOnMock
 import org.mockito.stubbing.Answer
 import org.scalamock.scalatest.MockFactory
 import org.scalatest.flatspec.AnyFlatSpec
 
 import scala.collection.mutable
+import scala.Tuple2
 
 /**
  * Copyright 2021 Zhang, Chen. All Rights Reserved.

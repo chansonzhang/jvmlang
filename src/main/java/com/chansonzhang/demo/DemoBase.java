@@ -22,8 +22,27 @@ import java.util.Map;
  * @author Zhang Chen(ChansonZhang)
  * @since 2021/5/13 21:42
  */
+import org.junit.runner.JUnitCore;
 public class DemoBase {
     Map<String, Object> output = new HashMap<>();
+
+    Map<String, String> input = new HashMap<>();
+
+    public int getInPortInt(String key) {
+        return Integer.parseInt(input.get(key));
+    }
+
+    public String getInPortValue(String key) {
+        return input.get(key);
+    }
+
+    public String getInPortString(String key) {
+        return input.get(key);
+    }
+
+    public Boolean getInPortBoolean(String key) {
+        return Boolean.valueOf(input.get(key));
+    }
 
     public Integer getInt(String key) {
         return null;
@@ -39,5 +58,6 @@ public class DemoBase {
 
     public void setOutputValue(String key, Object value) {
         this.output.put(key, value);
+        System.out.println();
     }
 }

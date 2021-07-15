@@ -1,8 +1,6 @@
 package com.chansonzhang.demo
 
-import com.chansonzhang.demo.util.JsonUtils
 import spock.lang.Specification
-
 
 /**
  * Copyright 2021 Zhang, Chen. All Rights Reserved.
@@ -20,26 +18,19 @@ import spock.lang.Specification
  * limitations under the License.
  * ==============================================================================
  *
- * @since 2021/5/13 21:20
+ * @since 2021/6/29 11:01
  * @author Zhang Chen(ChansonZhang)
  */
+class DemoServiceSpecification extends Specification{
 
-class TestJson extends Specification {
-    def "testToJson"() {
+    def "testSumValues"(){
         given:
-        var behavior = Spy(DemoBehavior.class)
-        behavior.getInt("age") >> 122
-        behavior.getBoolean("married") >> false
-        behavior.getString("name") >> "zc"
-
+        var mockedDb = Mock(SomeDataBase)
+        mockedDb.getValues() >> [1,2,3]
+        var service = new DemoService(mockedDb)
         when:
-        var json = behavior.getJsonParam()
-        println(json)
-        DemoParam obj = JsonUtils.fromJsonString4j(json, DemoParam.class)
-
+        var sum = service.sumValues()
         then:
-        obj.age().get() == 122
-        !obj.married().get()
-        obj.name().get() == "zc"
+        sum == 6
     }
 }

@@ -1,6 +1,8 @@
 package com.chansonzhang.demo.util
 
-import com.chansonzhang.demo.DemoBase
+import com.chansonzhang.demo.{DemoBase, JavaData}
+
+import java.util
 
 /**
  * Copyright 2021 Zhang, Chen. All Rights Reserved.
@@ -21,6 +23,21 @@ import com.chansonzhang.demo.DemoBase
  * @author Zhang Chen(ChansonZhang)
  */
 object JavaDataUtils {
+  def main(args: Array[String]): Unit = {
+    val javaData = JavaData.getJavaData
+
+    val json = JsonUtils.toJsonString(javaData)
+    val scalaData = JsonUtils.fromJsonString[Array[Array[Array[Float]]]](json)
+
+
+    javaData.toArray().map(a=>a)
+
+    println(scalaData)
+  }
+
+  def parse2d(list: util.List[Array[Float]])={
+    list.toArray().map(a=>a)
+  }
   def getIntFromJava(behavior: DemoBase, key: String): Option[Int] = {
     val javaValue = behavior.getInt(key)
     if (null == javaValue) None else Option(javaValue.intValue())
@@ -30,4 +47,5 @@ object JavaDataUtils {
     val javaValue = behavior.getBoolean(key)
     if (null == javaValue) None else Option(javaValue.booleanValue())
   }
+
 }
